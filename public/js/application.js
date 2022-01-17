@@ -49,7 +49,7 @@ function countdownMessage(show, number) {
 
 // Wait till the browser is ready to render the game (avoids glitches)
 window.requestAnimationFrame(function () {
-  const socket = io.connect(window.location.origin);
+  const socket = io.connect('http://34.133.159.47', { transports: ['websocket'] });
   
   remoteGame = new GameManager(socket, true, 4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
   localGame = new GameManager(socket, false, 4, KeyboardInputManager, HTMLActuator, LocalStorageManager);
